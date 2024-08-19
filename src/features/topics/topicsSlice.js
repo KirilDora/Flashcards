@@ -1,6 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {topics:{}};
+
+const addQuiz = createAsyncThunk(
+  "topics/addQuizId",
+  async (state, action) => {
+    state.topics[action.paylaod.topicId].quizIds.push(action.payload.id);
+  }
+);
 
 const topicsSlice = createSlice({
   name: 'topics',
@@ -9,6 +16,9 @@ const topicsSlice = createSlice({
     addTopic: (state, action) => {
       state.topics[action.payload.id] = {...action.payload, quizIds:[]};
     }
+  },
+  extraReducers: {
+    addQuiz
   }
 });
 

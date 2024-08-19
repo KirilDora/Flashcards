@@ -25,7 +25,7 @@ export default function NewTopicForm() {
       id:uuidv4(),
       name,
       icon
-    }))
+    }));
   };
 
   return (
