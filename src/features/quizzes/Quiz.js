@@ -10,8 +10,6 @@ export default function Quiz() {
   const quizzes = useSelector(selectQuizs); // replace this with a call to your selector to get all the quizzes in state
   const { quizId } = useParams();
   const quiz = quizzes[quizId];
-  console.log('QuizId: ' + quizId);
-  console.log(quizzes[quizId]);
 
   if(!quiz) {
     return <Navigate to={ROUTES.quizzesRoute()} replace/>
